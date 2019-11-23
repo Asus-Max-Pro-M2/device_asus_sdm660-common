@@ -30,7 +30,6 @@ import /vendor/etc/init/hw/init.target.rc
 import /vendor/etc/init/hw/init.qcom.asus.rc
 import /vendor/etc/init/hw/nvram_btwifi.rc
 import /vendor/etc/init/hw/init.device.rc
-import /vendor/etc/init/android.hardware.sensors@1.0-service.rc
 import /vendor/etc/init/android.hardware.audio.service.rc
 import /vendor/etc/init/init.time_daemon.rc
 
@@ -771,6 +770,15 @@ service vendor.msm_irqbl_sdm630 /vendor/bin/msm_irqbalance -f /system/vendor/etc
     user root
     group root
     disabled
+
+service vendor.sensors-hal-1-0 /vendor/bin/hw/android.hardware.sensors@1.0-service
+    override
+    interface android.hardware.sensors@1.0::ISensors default
+    class hal
+    user system
+    group system wakelock input uhid context_hub
+    capabilities BLOCK_SUSPEND
+    rlimit rtprio 10 10
 
 # service for USERDEBUG
 service vendor.LKCore-dbg /vendor/bin/LKCore
