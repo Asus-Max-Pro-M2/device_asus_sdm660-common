@@ -5,6 +5,7 @@
 #
 
 COMMON_PATH := device/asus/sdm660-common
+
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # Architecture
@@ -21,8 +22,6 @@ TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := generic
 TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a73
-
-TARGET_USES_AOSP_RECOVERY := true
 
 # Audio
 AUDIO_FEATURE_ENABLED_EXT_AMPLIFIER := true
@@ -69,8 +68,6 @@ BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_IMAGE_NAME  := Image.gz-dtb
 
 TARGET_KERNEL_SOURCE := kernel/asus/sdm660
-TARGET_KERNEL_ADDITIONAL_FLAGS := \
-    HOSTCFLAGS="-fuse-ld=lld -Wno-unused-command-line-argument"
 
 # GPS
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := default
